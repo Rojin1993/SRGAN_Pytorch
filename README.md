@@ -1,5 +1,5 @@
 # SRGAN_Pytorch
 Firstly, create low-resolution images from high resolution. For this step, simply use the `resize.py` file. Please note that high-resolution images are located in the HR folder, and the LR2 folder contains the low-resolution images. The width and height of images are reduced by half using the bicubic method. You can adjust this according to your requirements.
 To test this method on low-resolution images, utilize the `SRGANtest.ipynb` file. Pay attention to the following warnings to obtain accurate results.
-After cloning the GitHub repository to your Google Drive, navigate to the 'inference.py' and for --inputs and --outputs, choose the location and name of the low resolution image and super resolution result respectively. Now, you can execute the last part of SRGANtest.ipynb. 
+After cloning the GitHub repository to your Google Drive, navigate to the 'inference.py' and for --inputs and --outputs, choose the location and name of the low resolution image and super resolution result respectively. Now, you can execute the last part of 'SRGANtest.ipynb'. 
 As I tested this method on noisy images, I added the code for adding noise in the 'NoisyImages.ipynb' notebook. The first cell contains Gaussian noise, and the second cell adds 'salt and pepper' noise to the images.
