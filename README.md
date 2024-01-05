@@ -1,10 +1,12 @@
 # SRGAN_Pytorch
 At the first we should create the low resolution images from high resolution.for this part I use this code:
 
-''''python'
+# Import the Necessary Library
+'''
 from PIL import Image
 import os
 from google.colab import drive
+'''
 
 # Mount Google Drive
 drive.mount('/content/drive')
