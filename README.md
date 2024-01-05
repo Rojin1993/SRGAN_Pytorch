@@ -1,7 +1,7 @@
 # SRGAN_Pytorch
 At the first we should create the low resolution images from high resolution.for this part I use this code:
 
-'''python
+''''python'
 from PIL import Image
 import os
 from google.colab import drive
@@ -37,5 +37,5 @@ for filename in os.listdir(input_folder_path):
         downsampled_image.save(output_image_path)
 
 print("Processing complete.")
-'''
+'''''
 be aware that high resolution images were in HR folder and the LR2 folder cntains Low resolution images. the width and height of images came to //2 by bicubic method which can changed by your need.
