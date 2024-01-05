@@ -1,43 +1,5 @@
 # SRGAN_Pytorch
-At the first we should create the low resolution images from high resolution.for this part I use this code:
-
-# Import the Necessary Library
-'''
-from PIL import Image
-import os
-from google.colab import drive
-'''
-
-# Mount Google Drive
-drive.mount('/content/drive')
-
-# Path to the input and output images on Google Drive
-input_folder_path = '/content/drive/My Drive/HR'
-output_folder_path = '/content/drive/My Drive/LR2'
-
-# Ensure the output folder exists
-if not os.path.exists(output_folder_path):
-    os.makedirs(output_folder_path)
-
-# Iterate through all files in the input folder
-for filename in os.listdir(input_folder_path):
-    # Check if the file is an image (you can customize the list of supported extensions)
-    if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-        # Construct the full paths
-        input_image_path = os.path.join(input_folder_path, filename)
-        output_image_path = os.path.join(output_folder_path, f"Noisy_LR_{filename}")
-
-        # Open the image from Google Drive
-        original_image = Image.open(input_image_path)
-
-        # Perform bicubic downsampling by a factor of 2 (adjust as needed)
-        new_width = original_image.width // 2
-        new_height = original_image.height // 2
-        downsampled_image = original_image.resize((new_width, new_height), Image.BICUBIC)
-
-        # Save the processed image back to Google Drive
-        downsampled_image.save(output_image_path)
-
-print("Processing complete.")
-'''''
-be aware that high resolution images were in HR folder and the LR2 folder cntains Low resolution images. the width and height of images came to //2 by bicubic method which can changed by your need.
+Firstly, create low-resolution images from high resolution. For this step, simply use the `resize.py` file. Please note that high-resolution images are located in the HR folder, and the LR2 folder contains the low-resolution images. The width and height of images are reduced by half using the bicubic method. You can adjust this according to your requirements.
+To test this method on low-resolution images, utilize the `SRGANtest.ipynb` file. Pay attention to the following warnings to obtain accurate results.
+After cloning the GitHub repository to your Google Drive, navigate to the 'inference.py' and for --inputs and --outputs, choose the location and name of the low resolution image and super resolution result respectively. Now, you can execute the last part of SRGANtest.ipynb. 
+As I tested this method on noisy images, I added the code for adding noise in the 'NoisyImages.ipynb' notebook. The first cell contains Gaussian noise, and the second cell adds 'salt and pepper' noise to the images.
